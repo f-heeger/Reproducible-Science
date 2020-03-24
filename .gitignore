@@ -1,0 +1,15 @@
+# tex stuff
+
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.gz
+
+# result files
+*.png
+*.pvd
+*.vtu
+
+# specific files
+paper.pdf
