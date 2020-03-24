@@ -11,5 +11,10 @@
 *.pvd
 *.vtu
 
+# misc
+.doit.db
+__pycache__
+
 # specific files
 paper.pdf
+
