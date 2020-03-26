@@ -8,7 +8,7 @@ Structure of the repository
 
 `computation/`
 
-- scripts needed to run the simulations, e.g. via (`docker`)[docker.md]
+- scripts needed to run the simulations, e.g. via [`docker`](docker.md)
 - raw result files
 
 `plots/`
