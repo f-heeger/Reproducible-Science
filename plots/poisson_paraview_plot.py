@@ -1,12 +1,11 @@
 import sys
+import os.path
 
-pvd_input = sys.argv[1]
-png_output = sys.argv[2]
+pvd_input = os.path.join(os.path.dirname(__file__), "..", "computation", "poisson.pvd" )
+png_output = os.path.join(os.path.dirname(__file__), "poisson_field.png" )
 
 #### import the simple module from the paraview
 from paraview.simple import *
-
-
 
 #### disable automatic camera reset on 'Show'
 paraview.simple._DisableFirstRenderCameraReset()

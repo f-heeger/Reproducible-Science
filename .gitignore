@@ -8,13 +8,12 @@
 
 # result files
 *.png
+*.pdf
 *.pvd
 *.vtu
+*.npy
 
 # misc
 .doit.db
 __pycache__
-
-# specific files
-paper.pdf
 
