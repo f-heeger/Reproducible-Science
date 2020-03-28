@@ -1,0 +1,4 @@
+paper:
+    image: christophpohl/reproducible
+    script:
+        - doit
