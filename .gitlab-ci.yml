@@ -2,3 +2,6 @@ paper:
     image: christophpohl/reproducible
     script:
         - doit
+    artifacts:
+        paths:
+            - tex/paper.pdf
