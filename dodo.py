@@ -1,3 +1,6 @@
+import os
+
+
 def task_simulation():
     """
     Runs the parametrized fenics 'poission' example for a convergence plot
@@ -27,7 +30,9 @@ def task_poisson_field_plot():
             "computation/poisson000000.vtu",
         ],
         "targets": ["plots/poisson_field.png"],
-        "actions": ["pvbatch --force-offscreen-rendering plots/poisson_paraview_plot.py"],
+        "actions": [
+            "pvbatch --force-offscreen-rendering plots/poisson_paraview_plot.py"
+        ],
         "clean": True,
     }
 
@@ -60,5 +65,10 @@ def task_paper():
     }
 
 
-#def task_show():
-#    return {"file_dep": ["tex/paper.pdf"], "actions": ["xdg-open tex/paper.pdf"]}
+def task_show():
+    if "CI" not in os.environ:
+        return {
+            "file_dep": ["tex/paper.pdf"],
+            "actions": ["xdg-open tex/paper.pdf"],
+            "uptodate": ["False"],
+        }
