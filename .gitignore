@@ -9,8 +9,8 @@
 # result files
 *.png
 *.pdf
-*.pvd
-*.vtu
+*.h5
+*.xdmf
 *.npy
 
 # misc
