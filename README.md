@@ -1,20 +1,18 @@
 Reproducible Science Template
 =============================
 
-Workshop
---------
+
+Kickoff-meeting
+---------------
 
 > More than 70% of researchers have tried and failed to reproduce another scientist's experiments, and more than half have failed to reproduce their own experiments. [[1]]
 
-In an attempt to overcome this _reproducibility crisis_ in the field of modelling and simulation, we aim to introduce a fully automated workflow [[2]] from the input scripts to a publication-ready document.
+In an attempt to overcome this _reproducibility crisis_ in the field of modeling and simulation, we aim to introduce a fully automated workflow [[2]] from the input scripts to a finished document.
+To not only provide _theoretical_ reproducibility, but a _practical_ one, everyone -- given the required computational power -- should be able to easily recreate those documents.
 
-To not only provide _theoretical_ reproduciblity, but a _practial_ one, everyone -- given the required computational power -- should be able to run the tools e.g. using `docker`. 
-We therefore want to collect requirements and existing solutions from scientists at BAM in an upcoming workshop. Depending on the specific input of the participants, this may include:
+The competence center modeling and simulation will coordinate the efforts towards this goal, provide guidance and the infrastructure (e.g. a wiki, repositories). For completing the tasks itself, however, we rely on the work of the interested participants.
 
-- automation crash course (`doit`[[3]])
-- using compute clusters
-- using non-free software?
-- simulation data management
+Depending on the scientific field, the challenges everyone faces may differ, but we also expect common issues like automation or data management. In a first kickoff meeting, we therefore want to collect requirements and existing solutions from people at BAM and plan future efforts. 
 
 
 [1]: https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970
