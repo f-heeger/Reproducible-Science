@@ -1,7 +1,15 @@
 paper:
     image: christophpohl/reproducible
     script:
-        - doit
+        - cd example && doit
     artifacts:
         paths:
-            - tex/paper.pdf
+            - example/tex/paper.pdf
+
+sphinx:
+    image: christophpohl/sphinx
+    script:
+        - make html
+    artifacts:
+        paths:
+            - .build
