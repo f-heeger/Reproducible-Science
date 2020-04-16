@@ -1,7 +1,13 @@
 A complete, executable example
 ==============================
 
-In the `example/` folder, you'll find a complete example of how a reproducible pipeline might look like. To execute the code, just `doit` in the `example/` directory. The details of how this is put together can be found in the subdirectories:
+In the `example/` folder, you'll find a complete example of how a reproducible
+pipeline might look like. To execute the code, just run `doit` in the `example/`
+directory. Specifically, its a finite element simulation using
+[FEniCS](https://fenicsproject.org/), a postprocessing step using
+[Paraview](https://www.paraview.org/) and the final mock paper is created with
+[LaTeX](https://www.latex-project.org/). The details of how this is put
+together can be found in the subdirectories:
 
 `example/`
 
@@ -21,7 +27,3 @@ In the `example/` folder, you'll find a complete example of how a reproducible p
 `example/tex/`
 
 - tex code that usually takes the images from `plots/`
-
-`example/docker/`
-
-- includes the `Dockerfile` to create a container that can run the complete pipeline
