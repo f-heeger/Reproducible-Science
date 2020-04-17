@@ -11,8 +11,8 @@ def task_simulation():
         "targets": [
             "computation/poisson_convergence_Ns.npy",
             "computation/poisson_convergence_errors.npy",
-            "computation/poisson.pvd",
-            "computation/poisson000000.vtu",
+            "computation/poisson.h5",
+            "computation/poisson.xdmf",
         ],
         "actions": ["python3 computation/poisson.py"],
         "clean": True,
@@ -26,8 +26,8 @@ def task_poisson_field_plot():
     return {
         "file_dep": [
             "plots/poisson_paraview_plot.py",
-            "computation/poisson.pvd",
-            "computation/poisson000000.vtu",
+            "computation/poisson.xdmf",
+            "computation/poisson.h5",
         ],
         "targets": ["plots/poisson_field.png"],
         "actions": [

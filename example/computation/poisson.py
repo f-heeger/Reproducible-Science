@@ -28,8 +28,8 @@ def poisson_error(N, order=1, plot=False):
 
     if plot:
         # Save solution to file in VTK format
-        vtkfile = File(str(Path(__file__).parent / "poisson.pvd"))
-        vtkfile << u
+        f = XDMFFile(str(Path(__file__).parent / "poisson.xdmf"))
+        f.write(u,0.)
 
     # Compute error in L2 norm
     error_L2 = errornorm(u_D, u, "L2")
