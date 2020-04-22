@@ -15,7 +15,6 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-from recommonmark.parser import CommonMarkParser
 
 # -- Project information -----------------------------------------------------
 
@@ -40,19 +39,21 @@ release = ''
 # ones.
 extensions = [
     'sphinx.ext.mathjax',
-    'sphinx.ext.githubpages'
+    'sphinx.ext.githubpages',
+    'recommonmark'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['.templates']
 
-source_parsers = {
-    '.md': CommonMarkParser,
-}
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-source_suffix = ['.rst', '.md']
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+}
 
 # The master toctree document.
 master_doc = 'website'
