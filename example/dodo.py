@@ -66,7 +66,7 @@ def task_paper():
 
 
 def task_show():
-    if os.path.exists("/.dockerenv"):
+    if not os.path.exists("/.dockerenv"):
         return {
             "file_dep": ["tex/paper.pdf"],
             "actions": ["xdg-open tex/paper.pdf"],
