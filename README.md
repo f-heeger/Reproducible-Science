@@ -16,7 +16,31 @@ For completing the tasks itself, however, we mainly rely on the work of the inte
 [2]: https://www.practicereproducibleresearch.org/core-chapters/2-assessment.html
 
 
----
+# Website with further information
 
 Run `make html` to build the sphinx-based website with further content.
 
+# Run the example
+
+To run the example, you can first start our docker container
+
+~~~
+<host> cd <root of this git repository>
+<host> sudo docker run -ti -v "$(pwd)":/repro christophpohl/reproducible
+~~~
+
+in an interactive terminal (`-ti`) and with the current directory (`pwd` or `PWD` on windows powershell) available at `/repro` within the container. You are now in the `christophpohl/reprodicble` docker container. To start the pydoit script, run
+
+~~~
+<docker> cd repro/example
+<docker> doit
+~~~
+
+Note that the last step of the doit script is showing the finished pdf. This step may fail, do not worry.
+
+---
+
+Alternatively, you can combine all the steps above into one command
+~~~
+<host> sudo docker run -v "$(pwd)":/repro christophpohl/reproducible /bin/bash -c "cd repro/example && doit"
+~~~
