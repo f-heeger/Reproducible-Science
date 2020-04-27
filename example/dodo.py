@@ -1,4 +1,4 @@
-import os
+import os.path
 
 
 def task_simulation():
@@ -66,7 +66,7 @@ def task_paper():
 
 
 def task_show():
-    if "CI" not in os.environ:
+    if os.path.exists("/.dockerenv"):
         return {
             "file_dep": ["tex/paper.pdf"],
             "actions": ["xdg-open tex/paper.pdf"],
