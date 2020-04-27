@@ -17,3 +17,5 @@
 .doit.db
 __pycache__
 
+# sphinx build files
+.build
