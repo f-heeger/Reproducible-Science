@@ -1,4 +1,4 @@
-import os.path
+DOIT_CONFIG = {"default_tasks": ["paper"]}
 
 
 def task_simulation():
@@ -66,9 +66,8 @@ def task_paper():
 
 
 def task_show():
-    if not os.path.exists("/.dockerenv"):
-        return {
-            "file_dep": ["tex/paper.pdf"],
-            "actions": ["xdg-open tex/paper.pdf"],
-            "uptodate": ["False"],
-        }
+    return {
+        "file_dep": ["tex/paper.pdf"],
+        "actions": ["xdg-open tex/paper.pdf"],
+        "uptodate": ["False"],
+    }

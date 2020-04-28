@@ -42,3 +42,4 @@ Alternatively, you can combine all the steps above into one command
 ~~~sh
 <host> sudo docker run -v "$(pwd)":/repro christophpohl/reproducible /bin/bash -c "cd repro/example && doit"
 ~~~
+
