@@ -1,4 +1,4 @@
-import os
+DOIT_CONFIG = {"default_tasks": ["paper"]}
 
 
 def task_simulation():
@@ -66,9 +66,8 @@ def task_paper():
 
 
 def task_show():
-    if "CI" not in os.environ:
-        return {
-            "file_dep": ["tex/paper.pdf"],
-            "actions": ["xdg-open tex/paper.pdf"],
-            "uptodate": ["False"],
-        }
+    return {
+        "file_dep": ["tex/paper.pdf"],
+        "actions": ["xdg-open tex/paper.pdf"],
+        "uptodate": ["False"],
+    }
