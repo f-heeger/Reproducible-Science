@@ -18,6 +18,6 @@ deploy:
     privder: pages
     skip_cleanup: true
     github_token: $TRAVIS_GH_PAGES_KEY
-    local_dir: "/repro/.build/html/"
+    local_dir: ".build/html/"
     on:
         branch: master
