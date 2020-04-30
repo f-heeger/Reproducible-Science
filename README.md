@@ -1,3 +1,5 @@
+ https://travis-ci.org/nutofem/Reproducible-Science-Template.svg?branch=master 
+
 Reproducible Science Template
 =============================
 
