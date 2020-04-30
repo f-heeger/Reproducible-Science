@@ -1,0 +1,11 @@
+language: python
+sudo: false
+services: docker
+dist: trusty
+
+before_script:
+    - travis_retry timeout 120 docker pull christophpohl/reproducible
+    - docker run -itd --name dock -v $(pwd):/repro christophpohl/reproducible
+
+script:
+    - docker exec dock bash -c "cd repro/example && doit"
