@@ -1,4 +1,4 @@
- https://travis-ci.org/nutofem/Reproducible-Science-Template.svg?branch=master 
+[![Build Status](https://travis-ci.org/nutofem/Reproducible-Science-Template.svg?branch=master)](https://travis-ci.org/nutofem/Reproducible-Science-Template) 
 
 Reproducible Science Template
 =============================
@@ -20,7 +20,7 @@ For completing the tasks itself, however, we mainly rely on the work of the inte
 
 # Website with further information
 
-Run `make html` to build the sphinx-based website with further content.
+Visit https://nutofem.github.io/Reproducible-Science-Template/ for further content or build the sphinx-based website locally by running `make html`.
 
 # Run the example
 
