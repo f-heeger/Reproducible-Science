@@ -3,22 +3,24 @@ sudo: false
 services: docker
 dist: trusty
 
-before_script:
-    - travis_retry timeout 120 docker pull christophpohl/reproducible
-    - docker run -itd --name dock -v $(pwd):/repro christophpohl/reproducible
+jobs:
+    include:
+        - stage: example
+          script:
+              - travis_retry timeout 120 docker pull christophpohl/reproducible
+              - docker run -itd --name dock -v $(pwd):/repro christophpohl/reproducible
+              - docker exec dock bash -c "cd repro/example && doit"
 
-script:
-    - docker exec dock bash -c "cd repro/example && doit"
+        - stage: website
+          script:
+              - travis_retry timeout 120 docker pull christophpohl/sphinx
+              - docker run -itd --name sphinx -v $(pwd):/repro christophpohl/sphinx
+              - docker exec sphinx bash -c "cd repro && make html"
 
-before_deploy:
-    - travis_retry timeout 120 docker pull christophpohl/sphinx
-    - docker run -itd --name sphinx -v $(pwd):/repro christophpohl/sphinx
-    - docker exec sphinx bash -c "cd repro && make html"
-
-deploy:
-    privder: pages
-    skip_cleanup: true
-    github_token: $TRAVIS_GH_PAGES_KEY
-    local_dir: ".build/html/"
-    on:
-        branch: master
+          deploy:
+              privder: pages
+              skip_cleanup: true
+              github_token: $TRAVIS_GH_PAGES_KEY
+              local_dir: ".build/html/"
+              on:
+                  branch: master
