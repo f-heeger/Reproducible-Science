@@ -10,8 +10,7 @@ Reproducible Computational Science - a Guideline
    More than 70% of researchers have tried and failed to reproduce another scientist's experiments, and more than half have failed to reproduce their own experiments. [\ `1 <https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970>`_\ ]
 
 
-In an attempt to overcome this *reproducibility crisis* in the field of modeling and simulation, everyone should aim for a fully automated workflow [\ `2 <https://www.practicereproducibleresearch.org/core-chapters/2-assessment.html>`_\ ] from the input scripts to a finished document.
-To not only provide *theoretical* reproducibility, but a *practical* one, everyone -- given the required computational power -- should be able to easily recreate those documents.
+In the field of modeling and simulation, we can *and should* ensure reproducibility with a fully automated workflow [\ `2 <https://www.practicereproducibleresearch.org/core-chapters/2-assessment.html>`_\ ] from the input scripts to a finished document. This allows for external verification, greater trust in your results and comparative ease in reconstructing details of your own work in the future.
 
 We would like to establish a working group within BAM that develops a wiki/handbook of possible approaches to tackle these challenges. 
 Everyone should be able to access these documents and will be able to use these as a basis for future projects.
