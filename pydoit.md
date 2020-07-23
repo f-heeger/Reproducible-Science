@@ -106,7 +106,33 @@ from paper.dodo import *
 ~~~
 
 
+Skipping huge simulations
+-------------------------
 
+If you just want to skip tasks (e.g. if they are too time consuming) you can define a flag and skip the task definition, if that flag is set. The simplest way would be to manually set the flag in the `dodo.py` file like
 
+~~~py
+import os
+def skip():
+    return True # set that to false manually
 
+def task_huge_simulation():
+    if skip():
+        return
+    return {...} # file_dep, actions, dependencies
+~~~
 
+It is advantageous to be able to change the flag without modifying the file, e.g. via an environment variable. 
+
+~~~py
+def skip():
+    """
+    return False if "DOIT_SKIP" is empty or does not exist.
+    """
+    try:
+        return os.environ["DOIT_SKIP"] != ""
+    except:
+        return False
+~~~
+
+This allows you to have "DOIT_SKIP=True" on your local machine, but run it with "DOIT_SKIP=" from time to time on a server to ensure full reproducibility.
