@@ -3,6 +3,10 @@ doit
 
 [doit on github](https://github.com/pydoit/doit)
 
+~~~sh
+pip3 install doit
+~~~
+
 What is it?
 -----------
 
@@ -33,12 +37,6 @@ A single `doit` command will trigger the execution of the whole chain of workflo
 * It proofs to you/colleges/reviewers that no manual manipulations occur.
 
 
-How to install it
------------------
-
-~~~sh
-pip3 install doit
-~~~
 
 Working with multiple systems
 -----------------------------
@@ -47,11 +45,14 @@ Complex workflows may require several machines run the actions. Reasons include:
 - Several scientists want to work on the same workflow
 - Compute tools or postprocessing tools are not available
     - licensing
-    - *just reviewing* a pdf on a laptop
+    - *just reviewing* the text of a document on a laptop
     - HPC machine
 
-The issue here is that `doit` has to run the task by itself (on the current machine) to connect the *dependencies* with the *targets*. And, due to some of the reasons above, the current machine is unable to do so. One remedy is to _store_ a *target* in our version control system and tell `doit`: 
-*Trust me, the thing in the version control is up-to-date.*
+`pydoit` builds a database (in the folder of the `doit.py`) that tracks (via hashes of the *dependencies*) which *actions* need to be rerun. That means that each task has to be executed at least once, even if the *targets* already exist or are up-to-date.
+Problems arise, if due to some of the reasons above, the current machine is unable to do so. 
+
+One remedy is to _store_ a *target* in our version control system and tell `doit`: 
+*Trust me, the target in the version control is up-to-date.*
 
 ### Proposed setup:
 ~~~py
@@ -63,8 +64,7 @@ The issue here is that `doit` has to run the task by itself (on the current mach
 ~~~
 
 The idea is to decouple the whole workflow into multiple `dodo` files. Someone, who just wants to build the `paper.pdf`, relies on up-to-date files in `/images/` and can simply run `doit` in the `/paper/` directory. 
-If he wants the _full_ workflow, calling the root `doit` in `/`, will trigger the complete workflow.
-
+If one wants to execute the _full_ workflow, calling the root `doit` in `/`, will trigger the complete workflow.
 
 If you work with _absolute_ paths in your `dodo` files, such as ...
 ~~~py
