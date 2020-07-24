@@ -58,8 +58,7 @@ Complex workflows may require several machines to run the actions. Reasons inclu
 That means that each task has to be executed at least once, even if the *targets* already exist or are up-to-date.
 Problems arise if, due to some of the reasons above, the current machine is unable to do so. 
 
-One remedy is to store a *target* in our version control system and tell `doit`: 
-*Trust me, the target in the version control is up-to-date.*
+One remedy is to store a *target* in our version control system and to decouple the whole workflow into multiple `dodo.py` files, each in a separate folder. 
 
 ### Proposed setup:
 ~~~py
@@ -70,7 +69,8 @@ One remedy is to store a *target* in our version control system and tell `doit`:
     repo/dodo.py                # optionally connect all tasks
 ~~~
 
-The idea is to decouple the whole workflow into multiple `dodo` files. 
+This breaks the chain of tasks and the `paper/dodo.py` simply does not know that the *dependencies* of its tasks are *targets* in `images/dodo.py`.
+
 If you want to build the `paper.pdf` without rebuilding the files in `repo/images/`, you can simply run `doit` in the `repo/paper/` directory. 
 If you want to execute the full workflow, calling `doit` in `repo` to trigger the complete workflow.
 
@@ -108,10 +108,14 @@ def task_paper():
 ... that makes it easy to connect the `image` target of the simulation task with the same `image` dependency of the paper task by just importing both into the same root file
 
 ~~~py
-# (root) /dodo.py
+# repo/dodo.py
 from simulation.dodo import *
 from paper.dodo import *
 ~~~
+
+> Note that is the opposite of why you want to use `doit` in the first place. 
+> It is now your responsibility to run the whole workflow of `repo/dodo.py` from time to time manually, or via a *nighly build* on some server.
+
 
 
 Skipping huge simulations
