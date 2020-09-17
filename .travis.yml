@@ -13,8 +13,9 @@ jobs:
 
         - stage: website
           script:
-              - travis_retry timeout 120 docker pull fb77/sphinx
-              - docker run -itd --name sphinx -v $(pwd):/repro fb77/sphinx
+              - travis_retry timeout 120 docker pull python:3.7
+              - docker run -itd --name sphinx -v $(pwd):/repro python:3.7
+              - docker exec sphinx bash -c "pip3 install sphinx sphinx-rtd-theme recommonmark doit"
               - docker exec sphinx bash -c "cd repro && doit"
 
           deploy:
