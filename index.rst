@@ -18,13 +18,11 @@ The competence center modeling and simulation will coordinate the efforts toward
 this goal, provide guidance and the infrastructure (e.g. a wiki, repositories). 
 For completing the tasks itself, however, we mainly rely on the work of the interested participants.
 
-
-
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    reproducibility.md
    example.md
    docker.md
-
+   scripts/excel.rst
