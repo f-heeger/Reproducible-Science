@@ -25,4 +25,4 @@ For completing the tasks itself, however, we mainly rely on the work of the inte
    reproducibility.md
    example.md
    docker.md
-   scripts/excel.rst
+   scripts/modify_files.rst

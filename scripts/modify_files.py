@@ -1,6 +1,54 @@
 """
-File I/O
-========
+Modifying files in python
+=========================
+
+Simple text files like ``parameters.txt``
+
+.. literalinclude:: parameters.txt
+   :linenos:
+
+can easily be read (``"r"``) via
+
+"""
+with open("parameters.txt", "r") as prm_file:
+    for line in prm_file:
+        name, value = line.split("=")
+        if name == "P2":
+            print("[parameters.txt]  value of P2 is", float(value))
+
+"""
+
+Other file formats like `YAML <https://pyyaml.org/wiki/PyYAMLDocumentation>`_ or
+`JSON <https://docs.python.org/3/library/json.html>`_ are naively supported by
+python and offer a more convenient access. For example, modifying the ``parameters.yaml``
+
+.. literalinclude:: parameters.yaml
+   :linenos:
+
+is done by
+
+"""
+import yaml
+with open("parameters.yaml", "r") as prm_file:
+    prm = yaml.load(prm_file, Loader=yaml.FullLoader)
+prm_E = prm["Material parameters"]["E"]
+assert prm_E["unit"] == "MPa"
+print("[parameters.yaml] value of E is", prm_E["value"])
+
+"""
+
+Writing YAML is done via 
+
+"""
+prm_E["value"] = 17840.2
+with open("parameters_modified.yaml", "w") as prm_file:
+    yaml.dump(prm, prm_file)
+
+"""
+
+.. literalinclude:: parameters_modified.yaml
+   :linenos:
+
 
 Interacting with MS Excel
 -------------------------
@@ -8,9 +56,13 @@ Interacting with MS Excel
 A popular package that provides a *pythonic* representation of MS Excel 
 workbooks/worksheets is `openpyxl <https://pypi.org/project/openpyxl/>`_.
 
+``> pip3 install openpyxl``
+
 
 Open a worksheet
 ***************
+
+.. image:: prm_xlsx.png
 """
 
 import openpyxl
@@ -96,14 +148,39 @@ P2_value = worksheet.cell(i, j+1).value
 
 """
 and write it to a different file, e.g. by replacing a known placeholder with
-the value.
-"""
-known_placeholder = "P2_PLACEHOLDER"
+the value. We therefore load a ``base_input_file.dat`` (containing the placeholders),
 
-"""
-We therefore load a base input file (containing the placeholders), replace the 
+.. literalinclude:: base_input_file.dat
+   :language: None
+   :linenos:
+
+replace the 
 placeholder with our value from the Excel sheet and save it to a different file.
 """
 s = open("base_input_file.dat", "r").read() 
-s_modified  = s.replace(known_placeholder, str(P2_value))
+s_modified  = s.replace("P2_PLACEHOLDER", str(P2_value))
 open("modified_input_file.dat", "w").write(s_modified)
+
+
+"""
+Further reading
+---------------
+
+`Automate the boring stuff <https://automatetheboringstuff.com/>`_, e.g. 
+ * `Chapter 9 Reading and writing files <https://automatetheboringstuff.com/2e/chapter9/>`_
+ * `Chapter 13 Working with Excel Spreadsheets <https://automatetheboringstuff.com/2e/chapter13/>`_
+
+ 
+Basic web searches like
+
+ * "python read file"
+ * "python loop through file line by line"
+ * "python replace string in file"
+
+ ... 
+ 
+ * will often lead you to `stackoverflow.com <https://stackoverflow.com/questions/4128144/replace-string-within-file-contents>`_
+ * are often faster than reading whole tutorials
+ * can result in ugly code, but that is OK.
+
+"""
