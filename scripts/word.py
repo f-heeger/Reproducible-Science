@@ -48,4 +48,11 @@ with UpdateableZipFile("report_modified.docx", "a") as o:
 """
 The big inconvenience is that you cannot recover the image names from 
 the \*.docx file, so you have to rely on the ordering.
+
+**Comment (TTitscher):** As the MS Excel/Word is not part of my daily work, I
+have no experience how the methods above perform in practice. However, I 
+believe that this topic is important and I suggest forming a working group
+(lead by someone else) that investigates the methods further.
 """
+
+
