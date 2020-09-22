@@ -51,8 +51,7 @@ for line in lines:
         print(line)
         continue
 
-
-    if not in_codeblock:
+    if not in_codeblock and line != lines[-1]:
         in_codeblock = True
         print("\n::\n")
 
