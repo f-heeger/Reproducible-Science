@@ -45,7 +45,7 @@ cell in the worksheet is ``cell(1,1)``.
 
 
 Openpyxl lets you conveniently loop through the cells of the worksheet, e.g.
-to find the cell that containts "P2" and to access its left neighbor.
+to find the cell that containts "P2" and to access its right neighbor.
 """
 
 for row in worksheet:
@@ -53,7 +53,7 @@ for row in worksheet:
         if cell.value == "P2":
             i, j = cell.row, cell.column
             print("Found P2 at cell:", i, j)
-            print("Cell left of P2 has value:", worksheet.cell(i, j + 1).value)
+            print("Cell right of P2 has value:", worksheet.cell(i, j + 1).value)
 
 """
 Modifying a worksheet 
@@ -85,9 +85,7 @@ def row_col_of(ws, parameter_name):
         for cell in row:
             if cell.value == parameter_name:
                 return cell.row, cell.column
-    raise RuntimeError(
-        'There is no cell containing "{}" in {}.'.format(parameter_name, ws)
-    )
+    raise RuntimeError(f'There is no cell containing "{parameter_name}" in {ws}.')
 
 
 """

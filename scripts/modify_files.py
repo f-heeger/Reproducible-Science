@@ -19,14 +19,12 @@ with open("parameters.txt", "r") as prm_file:
 """
 
 Other file formats like `YAML <https://pyyaml.org/wiki/PyYAMLDocumentation>`_ or
-`JSON <https://docs.python.org/3/library/json.html>`_ are naively supported by
-python and offer a more convenient access. For example, modifying the ``parameters.yaml``
+`JSON <https://docs.python.org/3/library/json.html>`_ offer a more convenient access. For example, modifying the ``parameters.yaml``
 
 .. literalinclude:: parameters.yaml
    :linenos:
 
-is done by
-
+requires ``pip3 install pyyaml`` and is done by
 """
 import yaml
 

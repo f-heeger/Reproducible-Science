@@ -30,7 +30,7 @@ it (*report_modified.docx*) here.
 
 """
 
-from upgradable_zip_file import *
+from updateable_zip_file import *
 
 shutil.copy("report.docx", "report_modified.docx")
 
