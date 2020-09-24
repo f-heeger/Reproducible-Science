@@ -89,11 +89,12 @@ def row_col_of(ws, parameter_name):
         'There is no cell containing "{}" in {}.'.format(parameter_name, ws)
     )
 
+
 """
 ... to extract parameter values from the worksheet ...
 """
 i, j = row_col_of(worksheet, "P2")
-P2_value = worksheet.cell(i, j+1).value
+P2_value = worksheet.cell(i, j + 1).value
 
 """
 and write it to a different file, e.g. by replacing a known placeholder with
@@ -106,8 +107,8 @@ the value. We therefore load a ``base_input_file.dat`` (containing the placehold
 replace the 
 placeholder with our value from the Excel sheet and save it to a different file.
 """
-s = open("base_input_file.dat", "r").read() 
-s_modified  = s.replace("P2_PLACEHOLDER", str(P2_value))
+s = open("base_input_file.dat", "r").read()
+s_modified = s.replace("P2_PLACEHOLDER", str(P2_value))
 open("input_file_modified.dat", "w").write(s_modified)
 
 

@@ -21,9 +21,9 @@ class UpdateableZipFile(ZipFile):
 
     def __init__(self, file, mode="r", compression=ZIP_STORED, allowZip64=False):
         # Init base
-        super(UpdateableZipFile, self).__init__(file, mode=mode,
-                                                compression=compression,
-                                                allowZip64=allowZip64)
+        super(UpdateableZipFile, self).__init__(
+            file, mode=mode, compression=compression, allowZip64=allowZip64
+        )
         # track file to override in zip
         self._replace = {}
         # Whether the with statement was called
@@ -38,13 +38,15 @@ class UpdateableZipFile(ZipFile):
         # mark the entry, and create a temp-file for it
         # we allow this only if the with statement is used
         if self._allow_updates and name in self.namelist():
-            temp_file = self._replace[name] = self._replace.get(name,
-                                                                tempfile.TemporaryFile())
+            temp_file = self._replace[name] = self._replace.get(
+                name, tempfile.TemporaryFile()
+            )
             temp_file.write(bytes)
         # Otherwise just act normally
         else:
-            super(UpdateableZipFile, self).writestr(zinfo_or_arcname,
-                                                    bytes, compress_type=compress_type)
+            super(UpdateableZipFile, self).writestr(
+                zinfo_or_arcname, bytes, compress_type=compress_type
+            )
 
     def write(self, filename, arcname=None, compress_type=None):
         arcname = arcname or filename
@@ -52,14 +54,16 @@ class UpdateableZipFile(ZipFile):
         # mark the entry, and create a temp-file for it
         # we allow this only if the with statement is used
         if self._allow_updates and arcname in self.namelist():
-            temp_file = self._replace[arcname] = self._replace.get(arcname,
-                                                                   tempfile.TemporaryFile())
+            temp_file = self._replace[arcname] = self._replace.get(
+                arcname, tempfile.TemporaryFile()
+            )
             with open(filename, "rb") as source:
                 shutil.copyfileobj(source, temp_file)
         # Otherwise just act normally
         else:
-            super(UpdateableZipFile, self).write(filename, 
-                                                 arcname=arcname, compress_type=compress_type)
+            super(UpdateableZipFile, self).write(
+                filename, arcname=arcname, compress_type=compress_type
+            )
 
     def __enter__(self):
         # Allow updates
@@ -80,7 +84,7 @@ class UpdateableZipFile(ZipFile):
 
     def _close_all_temp_files(self):
         for temp_file in self._replace.values():
-            if hasattr(temp_file, 'close'):
+            if hasattr(temp_file, "close"):
                 temp_file.close()
 
     def remove_file(self, path):
@@ -89,11 +93,15 @@ class UpdateableZipFile(ZipFile):
     def _rebuild_zip(self):
         tempdir = tempfile.mkdtemp()
         try:
-            temp_zip_path = os.path.join(tempdir, 'new.zip')
-            with ZipFile(self.filename, 'r') as zip_read:
+            temp_zip_path = os.path.join(tempdir, "new.zip")
+            with ZipFile(self.filename, "r") as zip_read:
                 # Create new zip with assigned properties
-                with ZipFile(temp_zip_path, 'w', compression=self.compression,
-                             allowZip64=self._allowZip64) as zip_write:
+                with ZipFile(
+                    temp_zip_path,
+                    "w",
+                    compression=self.compression,
+                    allowZip64=self._allowZip64,
+                ) as zip_write:
                     for item in zip_read.infolist():
                         # Check if the file should be replaced / or deleted
                         replacement = self._replace.get(item.filename, None)

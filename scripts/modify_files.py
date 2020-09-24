@@ -29,6 +29,7 @@ is done by
 
 """
 import yaml
+
 with open("parameters.yaml", "r") as prm_file:
     prm = yaml.load(prm_file, Loader=yaml.FullLoader)
 prm_E = prm["Material parameters"]["E"]
@@ -51,4 +52,3 @@ with open("parameters_modified.yaml", "w") as prm_file:
 
 # .. include:: excel.rst
 # .. include:: word.rst
-

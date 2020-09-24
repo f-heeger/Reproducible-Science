@@ -34,7 +34,7 @@ from upgradable_zip_file import *
 
 shutil.copy("report.docx", "report_modified.docx")
 
-new_images = [ # order matters!
+new_images = [  # order matters!
     "dummy_images/red.png",
     "dummy_images/blue.png",
     "dummy_images/gray.png",
@@ -54,5 +54,3 @@ have no experience how the methods above perform in practice. However, I
 believe that this topic is important and I suggest forming a working group
 (lead by someone else) that investigates the methods further.
 """
-
-
