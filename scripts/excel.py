@@ -100,7 +100,7 @@ and write it to a different file, e.g. by replacing a known placeholder with
 the value. We therefore load a ``base_input_file.dat`` (containing the placeholders),
 
 .. literalinclude:: base_input_file.dat
-   :language: None
+   :language: none
    :linenos:
 
 replace the 

@@ -22,7 +22,7 @@ print(images)
 """
 You can now modify the contents (actually creating a new zip file) to replace 
 one of the images with another one. This is conveniently done by the provided
-``class UpdatableZipFile`` (web search: _python replace file in zip_ lead to 
+``class UpdatableZipFile`` (web search: *python replace file in zip* lead to 
 https://stackoverflow.com/a/35435548 )
 
 You can direcly overwrite the *report.docx*, but we chose to work on a copy of
