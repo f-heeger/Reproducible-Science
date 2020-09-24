@@ -108,7 +108,7 @@ placeholder with our value from the Excel sheet and save it to a different file.
 """
 s = open("base_input_file.dat", "r").read() 
 s_modified  = s.replace("P2_PLACEHOLDER", str(P2_value))
-open("modified_input_file.dat", "w").write(s_modified)
+open("input_file_modified.dat", "w").write(s_modified)
 
 
 """
