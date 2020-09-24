@@ -1,2 +1,4 @@
 *.rst  
 *modified.*
+
+!*.png
