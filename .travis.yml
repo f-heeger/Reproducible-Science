@@ -15,7 +15,7 @@ jobs:
           script:
               - travis_retry timeout 120 docker pull python:3.7
               - docker run -itd --name sphinx -v $(pwd):/repro python:3.7
-              - docker exec sphinx bash -c "pip3 install sphinx sphinx-rtd-theme recommonmark doit"
+              - docker exec sphinx bash -c "pip3 install sphinx sphinx-rtd-theme recommonmark doit pyyaml openpyxl"
               - docker exec sphinx bash -c "cd repro && doit"
 
           deploy:
