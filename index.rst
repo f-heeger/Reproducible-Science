@@ -19,7 +19,7 @@ this goal, provide guidance and the infrastructure (e.g. a wiki, repositories).
 For completing the tasks itself, however, we mainly rely on the work of the interested participants.
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Contents:
 
    reproducibility.md

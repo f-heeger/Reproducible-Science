@@ -9,7 +9,7 @@ workbooks/worksheets is `openpyxl <https://pypi.org/project/openpyxl/>`_.
 
 
 Open a worksheet
-***************
+****************
 
 .. image:: prm_xlsx.png
 """
