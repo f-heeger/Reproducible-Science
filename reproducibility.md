@@ -71,7 +71,7 @@ how you've set up your environment.
 A new approach is to use containers, which will allow you to easily distribute
 your environmental setup along with the rest of the code, while also being
 faster than virtual machines. This is discussed in detail in the
-[docker](docker.html) section.
+[docker](docker) section.
 
 
 For Analyses That Include Randomness, Note Underlying Random Seeds

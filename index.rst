@@ -18,8 +18,6 @@ The competence center modeling and simulation will coordinate the efforts toward
 this goal, provide guidance and the infrastructure (e.g. a wiki, repositories). 
 For completing the tasks itself, however, we mainly rely on the work of the interested participants.
 
-
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -28,4 +26,5 @@ For completing the tasks itself, however, we mainly rely on the work of the inte
    example.md
    docker.md
    pydoit.md
+   scripts/modify_files.rst
 
