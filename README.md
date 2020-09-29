@@ -19,7 +19,7 @@ For completing the tasks itself, however, we mainly rely on the work of the inte
 
 # Website with further information
 
-Visit https://BAMresearch.github.io/Reproducible-Science/ for further content or build the sphinx-based website locally by running `make html`.
+Visit https://BAMresearch.github.io/Reproducible-Science/ for further content or build the sphinx-based website locally by running `doit` (see [requirements](requirements.txt)).
 
 # Run the example
 
