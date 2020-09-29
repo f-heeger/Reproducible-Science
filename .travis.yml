@@ -1,4 +1,5 @@
 language: python
+python: 3.6
 sudo: false
 services: docker
 dist: trusty
@@ -13,10 +14,7 @@ jobs:
 
         - stage: website
           script:
-              - travis_retry timeout 120 docker pull python:3.7
-              - docker run -itd --name sphinx -v $(pwd):/repro python:3.7
-              - docker exec sphinx bash -c "pip3 install -r requirements.txt"
-              - docker exec sphinx bash -c "cd repro && doit"
+              - doit
 
           deploy:
               privder: pages
